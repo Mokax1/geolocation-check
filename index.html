@@ -11,9 +11,9 @@
     <div id="result"></div>
 
     <script>
-        const officeLat = 30.0544187;
-        const officeLon = 31.3679782;
-        const rangeInMeters = 500;
+        const officeLat = 30.0544187; // Office latitude
+        const officeLon = 31.3679782; // Office longitude
+        const rangeInMeters = 100; // Change to your desired range (e.g., 100m)
 
         function calculateDistance(lat1, lon1, lat2, lon2) {
             const R = 6371e3; // Earth radius in meters
@@ -37,10 +37,8 @@
                     const userLon = position.coords.longitude;
                     const distance = calculateDistance(userLat, userLon, officeLat, officeLon);
 
+                    // Determine if the user can check in
                     const canCheckIn = distance <= rangeInMeters;
-                    const message = canCheckIn 
-                        ? "You are within the range. You can check in!" 
-                        : "You are outside the range. You cannot check in.";
 
                     // Redirect back to Retool with the result
                     window.location.href = `https://drippz.retool.com/apps/60307370-9839-11ef-8fc6-57ca74b2eb91/Attendence?result=${canCheckIn}`;
