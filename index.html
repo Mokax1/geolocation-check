@@ -41,7 +41,7 @@
                     const canCheckIn = distance <= rangeInMeters;
 
                     // Redirect back to Retool with the result
-                    window.location.href = `https://drippz.retool.com/apps/60307370-9839-11ef-8fc6-57ca74b2eb91/Attendence?result=${canCheckIn}`;
+                    window.location.href = `https://drippz.retool.com/apps/60307370-9839-11ef-8fc6-57ca74b2eb91/Attendence${canCheckIn}`;
                 }, (error) => {
                     document.getElementById('result').innerText = "Error getting location: " + error.message;
                 });
